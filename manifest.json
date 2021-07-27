@@ -1,0 +1,23 @@
+{
+    "name": "Easy Ingredients",
+    "description": "Get the ingredients from a recipe page",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup":  "./src/html/popup.html"
+    },
+    "options_page": "./src/html/options.html",
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "storage",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://www.google.com/*",
+        "<all_urls>"
+    ]
+}

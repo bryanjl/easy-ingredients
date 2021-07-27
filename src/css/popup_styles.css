@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 150px;
+    height: 150px;
+    background-color: aqua;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ei-title {
+    color: black;
+    font-size: 15px;
+    margin: 5px;
+}
+
+#btn-container {
+    border: 1px solid red;
+    width: 100px;
+    height: 100px;
+    display: grid;
+    align-items: center;
+    box-shadow: 5px 5px 8px #888888;
+    background-color: hotpink;
+}
+
+#ingredients-btn {
+    border: 1px solid black;
+    width: 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 8px #888888;
+    background-color: greenyellow;
+    cursor: pointer;
+}
+
+#recipie-btn {
+    border: 1px solid black;
+    width: 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 8px #888888;
+    background-color: greenyellow;
+    cursor: pointer;
+}
