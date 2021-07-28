@@ -39,8 +39,21 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
                 console.log('INJECTED');
             })
             .catch(err => console.log(err));
-    }
 
+        
+        chrome.scripting.insertCSS({
+            target: {tabId: tabId},
+            files: ['./src/css/page_btn_styles.css']
+        })
+            .then(() => {
+                console.log('page_btn_styles.css injected');
+                sendToForeground();
+
+            })    
+            .catch(err => console.log(err));
+            
+
+        }
 });
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -56,3 +69,12 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
     return true;
 });
+
+function sendToForeground() {
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, { message: 'page_loaded' }, (response) => {
+            console.log('page_loaded message sent');
+        });
+    });
+    
+}

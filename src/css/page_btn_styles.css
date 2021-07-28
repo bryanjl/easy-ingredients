@@ -1,0 +1,52 @@
+#btns-container {
+    position: fixed;
+    /* background-color: purple; */
+    top: 15px;
+    /* left: 15px; */
+    height: 150px;
+    width: 100px;
+    z-index: 9999999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    left: -150px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
+}
+
+#ingredients-btn {
+    /* top: 0;
+    left: 15; */
+    background-color: red;
+}
+
+#recipes-btn {
+    /* top: 0;
+    left: 15; */
+    background-color: blue;
+}
+
+.page-btns {
+    border-radius: 5px;
+    border: none;
+    height: 50px;
+    width: 150px;
+    /* margin: 20px;
+    padding: 5px; */
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid black;
+    opacity: 0.5;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 25px; }
+}
+
+@keyframes slide {
+    100% { left: 25px; }
+}
