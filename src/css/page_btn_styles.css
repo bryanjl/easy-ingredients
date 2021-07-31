@@ -1,52 +1,125 @@
+:root {
+  --outside-border-color: #264653;
+  --inside-border-color: #2a9d8f;
+  --main-btn-color: #f4a261;
+  --text-color: #264653;
+  --main-font: Arial, Helvetica, sans-serif;
+  --border-shadow: #264653 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px; 
+  --border-shadow-mouseclick:rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
 #btns-container {
     position: fixed;
-    /* background-color: purple; */
-    top: 15px;
-    /* left: 15px; */
-    height: 150px;
+    top: 50px;
+    height: 125px;
     width: 100px;
-    z-index: 9999999;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
-    left: -150px;
-    -webkit-animation: slide 0.5s forwards;
-    -webkit-animation-delay: 2s;
-    animation: slide 0.5s forwards;
-    animation-delay: 2s;
+    left: 0;
+    /* background-color: blueviolet; */
+    z-index: 9999999;
 }
+
+/* Got theese code examples from stackoverflow */
+.animated {
+    animation-duration: 8s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: initial;
+}
+
+.bounceInLeft {
+    -webkit-animation-name: bounceInLeft;
+    animation-name: bounceInLeft;
+}
+/* Stackoverflow code ends here */
 
 #ingredients-btn {
-    /* top: 0;
-    left: 15; */
-    background-color: red;
+
+    transition: all 1s ease;
+
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
 }
 
+#ingredients-btn:hover{
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+    opacity: 1;
+    text-align: right;
+}
+
+
 #recipes-btn {
-    /* top: 0;
-    left: 15; */
-    background-color: blue;
+    transition: all 1s ease;
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+}
+
+#recipes-btn:hover{
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+    opacity: 1;
+    text-align: right;
 }
 
 .page-btns {
     border-radius: 5px;
     border: none;
     height: 50px;
-    width: 150px;
-    /* margin: 20px;
-    padding: 5px; */
+    width: 150px; 
     overflow: hidden;
     cursor: pointer;
-    border: 1px solid black;
     opacity: 0.5;
+    background-color: var(--main-btn-color);
+    border: 3px solid var(--outside-border-color);
+    box-shadow: var(--border-shadow);
+    color: var(--text-color);
+    font-family: var(--main-font);
+    font-size: .8em;
+    text-align: left;
+    padding-right: 15px;
 }
 
-@-webkit-keyframes slide {
-    100% { left: 25px; }
-}
 
-@keyframes slide {
-    100% { left: 25px; }
-}
+@keyframes bounceInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-2000px);
+      text-align: right;
+    }
+    6% {
+      opacity: 1;
+      transform: translateX(30px);
+      text-align: right;
+    }
+    8% {
+      transform: translateX(-10px);
+      text-align: right;
+    }
+    10% {
+      transform: translateX(0);
+      text-align: right;
+    }
+    40% {
+      opacity: 1;
+      transform: translateX(0);
+      text-align: right;
+    }
+    42% {
+      opacity: 1;
+      transform: translateX(30px);
+      text-align: right;
+    }
+    55% {
+      opacity: .5;
+      transform: translateX(-100px);
+      text-align: left;
+    }
+    100% {
+      opacity: .5;
+      transform: translateX(-100px);
+      text-align: left;
+    }
+  }

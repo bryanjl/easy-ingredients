@@ -18,5 +18,10 @@
     ],
     "host_permissions": [
         "<all_urls>"
-    ]
+    ],
+    "icons": {
+        "16": "./img/lemon-icon-16.png",
+        "48": "./img/lemon-icon-48.png",
+        "128": "./img/lemon-icon-48.png"
+    }
 }
