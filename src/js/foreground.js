@@ -4,6 +4,7 @@
 //message from background.js that page has loaded
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.message === 'page_loaded'){
+        console.log('pageloaded recieved in content script');
         const allElements = document.querySelectorAll('*');
 
         for(let i = 0; i < allElements.length; i++) {
@@ -23,7 +24,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.message === 'get_ingredients') {
         scrollToIngredients();
     }
-    return true;
+    return false;
 });
 
 //listen for message from popup.js "get_recipe"
@@ -31,7 +32,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.message === 'get_recipe') {
         scrollToDirections();
     }
-    return true;
+    return false;
 });
 
 //--------------------------------------------------------------------
@@ -134,7 +135,6 @@ function loadPageBtns(user_data) {
 
 //------------------------------------------------------------------
 
-//GET and SET STORAGE FUNCTIONS -------------------------------------
 
 
 

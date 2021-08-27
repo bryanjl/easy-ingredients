@@ -1,36 +1,24 @@
-//on extension install set default properties
-chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.set({
-        btn_disp: true,
-        user_colors: 'default'
-    }, () => {
-        console.log('Default settings applied');
+//user settings object -> get intial settings for extension
+let user_data = {};
+
+//updates the user_data object (on startup and changes made to settings)
+const updateUserData = () => {
+    chrome.storage.sync.get(['btn_disp', 'user_colors'], (result) => {
+        user_data = result;
+        console.log('this is the user_data intialization in bg script', user_data);
     });
+}
+
+//intial cahching of the user_data object
+updateUserData();
+
+//update cached user_data object when changes are made
+//changes can only occur from the options page
+chrome.storage.onChanged.addListener((changes, namespace) => {
+    updateUserData();
+    console.log('changes applied');
 });
 
-//get the user data
-let user_data;
-chrome.storage.sync.get(['btn_disp', 'user_colors'], (result) => {
-    user_data = result;
-    // console.log('this is the data', user_data);
-});
-
-
-//get the current settings to be used for foreground
-//listen for message request and send back object of user settings
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if(request.message === 'get_user_data'){
-        sendResponse(user_data);
-    }
-});
-
-
-
-
-//access the local storage for properties on chrome
-// chrome.storage.local.get(['name', 'age'], data => {
-
-// });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     //inject the script into page
@@ -38,8 +26,9 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 
     //listening for the 'complete' message from tabs
 
-    if(changeInfo.status === 'complete' && /^http/.test(tab.url)){
+    // console.log('im here...',tabId, changeInfo, tab);
 
+    if(changeInfo.status === 'complete'){
         chrome.scripting.executeScript({
             target: { tabId: tabId },
             files: ['./src/js/foreground.js']
@@ -58,15 +47,19 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
                 sendToForeground();
             })    
             .catch(err => console.log(err));
-        }
-});
+    }
+        
+        });
 
-//page loaded -> load buttons
+//page loaded message sends 
+//foreground script has been injected and loads buttons if needed
 function sendToForeground() {
+    console.log(user_data, 'sent from sendtoforground');
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, { message: 'page_loaded', data: user_data }, (response) => {
             console.log('page_loaded message sent');
         });
+        console.log('its me');
     });
     
 }
