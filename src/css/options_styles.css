@@ -1,31 +1,99 @@
+:root {
+    --day-main-color: #FFD55A;
+    --day-secondary-color: #293250;
+    --day-accent-color: rgb(109, 212, 126, 0.6);
+
+    --night-main-color: #121212;
+    --night-secondary-color: #F2F2F2;
+    --night-accent-color: #BDBDBD;
+}
+
 body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-#page-container {
-    background-color: purple;
+.page-container{
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    
+    background: var(--day-main-color);
     display: grid;
-    align-items: center;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 'logo settings';
+
+}
+
+.logo-container {
+    grid-area: logo;
+    height: 100%;
+    width: 100%;
+    display: flex;
     justify-content: center;
-}
-
-#settings-container {
-    background-color: black;
-    display: grid;
-    height: 500px;
-    width: 500px;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
     align-items: center;
 }
 
-.setting-inner {
-    background-color: blue;
-    height: 200px;
-    width: 200px;
+.logo-container img {
+    /* max-height: 400px; */
+    max-width: 800px;
+    margin-left: 25px;
+
 }
 
+.settings-container {
+    grid-area: settings;
+    height: 100%;
+    width: 100%;
+    /* background-color: red; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: 400px;
+    height: 400px;
+    background: var(--day-accent-color);
+
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 'buttons'
+                         'dark';
+}
+
+.show-buttons-container {
+    height: 100%;
+    width: 100%;
+    /* background-color: red; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.show-buttons-container fieldset{
+    border: none;   
+}
+
+.dark-mode-container fieldset {
+    border: none;
+}
+
+.dark-mode-container {
+    height: 100%;
+    width: 100%;
+    /* background-color: blue; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.float-left {
+    float: left;
+}

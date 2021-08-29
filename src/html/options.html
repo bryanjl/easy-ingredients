@@ -1,33 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easy Ingredients</title>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel='stylesheet' href='../css/options_styles.css'>
-</head>
-<body>
-    <div id='page-container'>
-        <h1>Easy Ingredients</h1>
-        <div id='settings-container'>
-            <div class='setting-inner' id='btn-settings'>
-                <h3>Show/Hide buttons on page</h3>
-                <input type="radio" id="show_btns" name="show-hide-btns" value=true>
-                <label for="show_btns">Show buttons on recipe pages</label><br>
-                <input type="radio" id="hide_btns" name="show-hide-btns" value=false>
-                <label for="hide_btns">Hide buttpns on recipe pages</label><br>
+    <title>Easy Ingredients</title>
+    
+  </head>
+  <body>
+    
+    <div class='page-container'>
+        <div class='logo-container'>
+            
+            <img src='../../img/logo.png' alt='easy-ingredients' />
+        </div>
+
+        <div class='settings-container'>
+            <div class='form-container'>
+                <div class='show-buttons-container'>
+                    <fieldset>
+                        
+                        <label for='show_button'>Show buttons on recipe wedsites</label>
+                        <input class='float-left' type="radio" name="show_btns" value="true" id='show_button'><br>
+                        
+                        <label for='hide_button'>Hide buttons on recipe wedsites</label>
+                        <input class='float-left' type="radio" name="show_btns" value="false" id='hide_button'><br>
+                        
+
+                    </fieldset>
+                </div>
+                <div class='dark-mode-container'>
+                    <fieldset>
+                        <label for='light'>Light Mode</label>
+                        <input class='float-left' type="radio" name="dark_mode" value="light" id='light'><br>
+                        <label for='dark'>Dark Mode</label>
+                        <input class='float-left' type="radio" name="dark_mode" value="dark" id='dark'><br>
+                    </fieldset>
+                </div>
             </div>
-            <!-- <div class='setting-inner' id='color-settings'>
-                <h3>Change color scheme for Easy Ingredients</h3>
-                <input type="radio" id="default" name="clr" value="Default Colors">
-                <label for="default_clr">Easy Ingredient's default colors</label><br>
-                <input type="radio" id="ugly" name="clr" value="Ugly Colors">
-                <label for="ugly_clr">Ugle color scheme</label><br>
-            </div> -->
-            <button type='button' id='save-btn'>SAVE</button>
         </div>
     </div>
+    
     <script src='../js/options.js'></script>
-</body>
+  </body>
 </html>
