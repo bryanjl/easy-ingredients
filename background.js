@@ -3,7 +3,7 @@ let user_data = {};
 
 //updates the user_data object (on startup and changes made to settings)
 const updateUserData = () => {
-    chrome.storage.sync.get(['btn_disp', 'user_colors'], (result) => {
+    chrome.storage.sync.get(['btn_disp', 'light_mode'], (result) => {
         user_data = result;
         console.log('this is the user_data intialization in bg script', user_data);
     });

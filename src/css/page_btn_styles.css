@@ -1,9 +1,9 @@
 :root {
-  --outside-border-color: #264653;
-  --inside-border-color: #2a9d8f;
-  --main-btn-color: #f4a261;
-  --text-color: #264653;
-  --main-font: Arial, Helvetica, sans-serif;
+  --background-color: #FFD55A;
+  --inside-color: #6dd47e;
+  --main-btn-color: #FFD55A;
+  --text-color: #293250;
+  --main-font: 'Courier New', monospace;
   --border-shadow: #264653 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px; 
   --border-shadow-mouseclick:rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
@@ -76,7 +76,8 @@
     box-shadow: var(--border-shadow);
     color: var(--text-color);
     font-family: var(--main-font);
-    font-size: .8em;
+    font-size: .7em;
+    font-weight: bolder;
     text-align: left;
     padding-right: 15px;
 }

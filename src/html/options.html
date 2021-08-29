@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel='stylesheet' href='../css/options_styles.css'>
+    <!-- <link rel='stylesheet' href='../css/options_styles.css'> -->
     <title>Easy Ingredients</title>
     
   </head>
@@ -17,32 +17,56 @@
             <img src='../../img/logo.png' alt='easy-ingredients' />
         </div>
 
-        <div class='settings-container'>
-            <div class='form-container'>
-                <div class='show-buttons-container'>
-                    <fieldset>
-                        
-                        <label for='show_button'>Show buttons on recipe wedsites</label>
-                        <input class='float-left' type="radio" name="show_btns" value="true" id='show_button'><br>
-                        
-                        <label for='hide_button'>Hide buttons on recipe wedsites</label>
-                        <input class='float-left' type="radio" name="show_btns" value="false" id='hide_button'><br>
-                        
+        <div class="container1">
+	
+            <h2>Button Settings:</h2>
+            
+          <ul>
+          <li>
+            <input type="radio" id="show" name="show-btns">
+            <label for="show">Show buttons on recipe websites</label>
+            
+            <div class="check"></div>
+          </li>
+          
+          <li>
+            <input type="radio" id="hide" name="show-btns">
+            <label for="hide">Hide buttons on recipe websites</label>
+            
+            <div class="check"><div class="inside"></div></div>
+          </li>
 
-                    </fieldset>
-                </div>
-                <div class='dark-mode-container'>
-                    <fieldset>
-                        <label for='light'>Light Mode</label>
-                        <input class='float-left' type="radio" name="dark_mode" value="light" id='light'><br>
-                        <label for='dark'>Dark Mode</label>
-                        <input class='float-left' type="radio" name="dark_mode" value="dark" id='dark'><br>
-                    </fieldset>
-                </div>
-            </div>
+        </ul>
         </div>
+
+
+        <div class="container2">
+	
+            <h2>Color Mode:</h2>
+            
+          <ul>
+          <li>
+            <input type="radio" id="light" name="color-mode">
+            <label for="light">Light Mode</label>
+            
+            <div class="check"></div>
+          </li>
+          
+          <li>
+            <input type="radio" id="dark" name="color-mode">
+            <label for="dark">Dark Mode</label>
+            
+            <div class="check"><div class="inside"></div></div>
+          </li>
+
+        </ul>
+        </div>
+        
     </div>
     
     <script src='../js/options.js'></script>
   </body>
 </html>
+
+
+

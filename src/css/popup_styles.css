@@ -1,9 +1,9 @@
 :root {
-    --background-color: #264653;
-    --inside-color: #2a9d8f;
-    --main-btn-color: #f4a261;
-    --text-color: #264653;
-    --main-font: Arial, Helvetica, sans-serif;
+    --background-color: #FFD55A;
+    --inside-color: #6dd47e;
+    --main-btn-color: #FFD55A;
+    --text-color: #293250;
+    --main-font: 'Courier New', monospace;
     --border-shadow: #264653 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px; 
     --border-shadow-mouseclick:rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }
@@ -11,35 +11,38 @@
 body {
     margin: 0;
     padding: 0;
-    width: 150px;
+    width: 175px;
     height: 150px;
     background-color: var(--background-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 5px;
+    font-family: var(--main-font);
 }
 
 #ei-title {
-    color: white;
-    font-family: var(--main-font);
+    color: var(--text-color);
+    
     font-size: 15px;
     margin: 5px;
 }
 
 #btn-container {
     border-radius: 5px;
-    width: 100px;
+    width: 140px;
     height: 100px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     box-shadow: 5px 5px 8px #888888;
     background-color: var(--inside-color);
 }
 
 #ingredients-btn {
     border: 1px solid black;
-    width: 100px;
+    width: 120px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -52,7 +55,7 @@ body {
 #recipe-btn {
     border-radius: 5px;
     border: 1px solid black;
-    width: 100px;
+    width: 120px;
     height: auto;
     display: flex;
     flex-direction: column;
