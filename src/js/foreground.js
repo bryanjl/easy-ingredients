@@ -2,20 +2,18 @@
 //MESSAGE LISTENERS---------------------------------
 
 //message from background.js that page has loaded
+//if ingreidents classname found loadPageBtns called
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.message === 'page_loaded'){
-        console.log('pageloaded recieved in content script');
         const allElements = document.querySelectorAll('*');
 
         for(let i = 0; i < allElements.length; i++) {
             if(allElements[i].className.toString().match(/ingredient/g)){
-                console.log(request.data);
                 loadPageBtns(request.data);
                 break;
             }   
         }   
     }
-    sendResponse({});
 });
 
 
@@ -24,7 +22,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.message === 'get_ingredients') {
         scrollToIngredients();
     }
-    return false;
 });
 
 //listen for message from popup.js "get_recipe"
@@ -32,7 +29,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.message === 'get_recipe') {
         scrollToDirections();
     }
-    return false;
 });
 
 //--------------------------------------------------------------------
@@ -43,7 +39,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 //PAGE FUNCTIONS ----------------------------------------------------
 
 
-//findd the ingredients classname and scroll section into view
+//find the ingredients classname and scroll section into view
 function scrollToIngredients(){
     const allElements = document.querySelectorAll('*');
 
@@ -56,7 +52,7 @@ function scrollToIngredients(){
             }else{
                 let classArr = allElements[i].className.toString().split(' ');
                 let ingredURL = document.getElementsByClassName(classArr[0]);
-                console.log(ingredURL.item(0));
+    
                 ingredURL.item(0).scrollIntoView({
                     behavior: 'smooth',
                     block: 'start',
@@ -68,6 +64,7 @@ function scrollToIngredients(){
     }
 }
 
+//find the direction/instruction classname and scroll section into view
 function scrollToDirections() {
     //Get all html from page
     const allElements = document.querySelectorAll('*');
@@ -89,6 +86,8 @@ function scrollToDirections() {
 
 //---------------------------------------------------------------------
 
+
+//loads the buttons for the website if user_data.show_btns = true
 function loadPageBtns(user_data) {
     if(user_data.btn_disp){
         //container for buttons on page

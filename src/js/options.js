@@ -4,29 +4,24 @@ const lightBtnRadio = document.getElementById('light');
 const darkBtnRadio = document.getElementById('dark');
 
 //EVENT LISTENERS TO UPDATE USER SETTING CHANGES
+//saves changes as soon as user clicks the radio button
 showBtnRadio.addEventListener('click', () => {
     chrome.storage.sync.set({ btn_disp: true });
-    console.log('show btns');
 });
 
 hideBtnRadio.addEventListener('click', () => {
     chrome.storage.sync.set({ btn_disp: false });
-    console.log('hide btns');
 });
 
 lightBtnRadio.addEventListener('click', () => {
     chrome.storage.sync.set({ light_mode: true });
-    getUserData();
-    console.log('light mode');
+    getUserData(); //call to update css file
 });
 
 darkBtnRadio.addEventListener('click', () => {
     chrome.storage.sync.set({ light_mode: false });
-    getUserData();
-    console.log('dark mode');
+    getUserData(); //call to update css file
 });
-
-
 
 
 
@@ -37,7 +32,7 @@ const getUserData = () => {
         user_data = result;
         result.btn_disp ? showBtnRadio.checked = true : hideBtnRadio.checked = true;
         result.light_mode ? lightBtnRadio.checked = true: darkBtnRadio.checked = true;
-        darkModeToggle();
+        darkModeToggle(); //apply appropriate css file
     });
 }
 
