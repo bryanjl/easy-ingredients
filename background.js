@@ -16,7 +16,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if(changeInfo.status === 'complete'){
         chrome.scripting.executeScript({
             target: { tabId: tabId },
-            files: ['./src/js/foreground.js']
+            files: ['./src/js/content.js']
         })
             .then(() => {
                 console.log('INJECTED');
@@ -38,14 +38,18 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 //foreground script has been injected and loads buttons if needed
 function sendToForeground() {
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { message: 'page_loaded', data: user_data });
+        chrome.tabs.sendMessage(tabs[0].id, { 
+            message: 'page_loaded', 
+            data: user_data 
+        });
     });
 }
 
-//updates the user_data object (on startup and changes made to settings)
+//updates the user_data object (on startup and changes made on options page)
+//if no result is found  set default settings. (first install)
 const updateUserData = () => {
     chrome.storage.sync.get(['btn_disp', 'light_mode'], (result) => {
-        user_data = result;
+            user_data = result;
     });
 }
 
